@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground</title>
+  </head>
+  <body>
+    <main>
+      <iframe id="output"></iframe>
+      <div class="editor">
+        <div class="toolbar">
+          <button id="run">Run <span class="shh">(Ctrl+S)</span></button>
+          <div></div>
+          <button id="help-btn">Keyboard Shortcut</button>
+        </div>
+        <div role="tablist" id="tabs">
+          <button role="tab" aria-selected="true" aria-controls="html">HTML</button>
+          <button role="tab" aria-selected="false" aria-controls="css">CSS</button>
+          <button role="tab" aria-selected="false" aria-controls="js">JS</button>
+        </div>
+        <div role="tabpanel" id="html"></div>
+        <div role="tabpanel" id="css" hidden></div>
+        <div role="tabpanel" id="js" hidden></div>
+      </div>
+    </main>
+    <dialog id="help">
+      <p><strong>Note:</strong> Editor must be focused.</p>
+      <table>
+        <tr>
+          <th>Run</th>
+          <td>Ctrl + S</td>
+        </tr>
+        <tr>
+          <th>HTML Tab</th>
+          <td>Alt + 1</td>
+        </tr>
+        <tr>
+          <th>CSS Tab</th>
+          <td>Alt + 2</td>
+        </tr>
+        <tr>
+          <th>JS Tab</th>
+          <td>Alt + 3</td>
+        </tr>
+        <tr>
+          <th>Switch to Left Tab</th>
+          <td>Alt + ,</td>
+        </tr>
+        <tr>
+          <th>Switch to Right Tab</th>
+          <td>Alt + .</td>
+        </tr>
+      </table>
+      <button id="close-help">Close</button>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

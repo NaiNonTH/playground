@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+body :first-child {
+  margin-top: 0 !important;
+}
+body :last-child {
+  margin-bottom: 0 !important;
+}
+
+main {
+  display: flex;
+  align-items: stretch;
+  height: 100vh;
+}
+
+#tabs {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+#tabs li {
+  flex: 1;
+}
+#tabs button {
+  width: 100%;
+}
+#tabs button[aria-selected="true"] {
+  background: linear-gradient(#e2f9ff, #b9eafd);
+}
+
+#output {
+  flex: 1;
+  border: none;
+}
+
+#run::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5ch;
+  vertical-align: middle;
+  display: inline-block;
+
+  clip-path: polygon(
+    0% 0%,
+    100% 50%,
+    0% 100%
+  );
+
+  background: linear-gradient(135deg, #0ad80a 0 20%, #178b1d 80% 100%);
+}
+
+#help {
+  border: 1px solid #888;
+}
+#help table {
+  border-collapse: collapse;
+}
+#help th,
+#help td {
+  text-align: left;
+  border-bottom: 1px solid #cfcfcf;
+  padding: 0.25em 2em 0.25em 0.25em;
+}
+
+#close-help {
+  display: block;
+  margin: 1rem auto 0;
+}
+
+.toolbar {
+  display: flex;
+}
+.toolbar > div {
+  flex: 1;
+}
+
+.shh {
+  font-size: smaller;
+  opacity: 0.5;
+}
+
+.toolbar > div,
+.editor button {
+  box-shadow:
+    inset 1px 1px 2px #fff9,
+    inset -1px -1px 2px #0003;
+  text-shadow: 0 1px #0003;
+  background: linear-gradient(#fff, #f0f0f0);
+}
+
+.editor {
+  width: 640px;
+  border-left: 1px solid lightgray;
+
+  display: flex;
+  flex-direction: column;
+}
+.editor button {
+  padding: 0.25rem;
+  border: none;
+  cursor: pointer;
+}
+.editor button:active {
+  filter: brightness(0.9);
+}
+.editor [role="tabpanel"] {
+  flex: 1;
+}
+
+.cm-editor {
+  height: 100%;
+}
