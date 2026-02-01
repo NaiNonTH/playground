@@ -1,3 +1,5 @@
+import './style.css';
+
 import { basicSetup, EditorView } from "codemirror";
 import { html } from "@codemirror/lang-html"
 import { css } from "@codemirror/lang-css";
@@ -6,8 +8,6 @@ import { javascript, javascriptLanguage, scopeCompletionSource } from "@codemirr
 import { keymap } from "@codemirror/view";
 import { EditorState } from "@codemirror/state";
 import { expandAbbreviation, abbreviationTracker } from "@emmetio/codemirror6-plugin";
-
-import './style.css';
 
 const outputElement = document.querySelector('#output');
 const parser = new DOMParser();
@@ -156,4 +156,8 @@ document.getElementById("close-help").addEventListener("click", function() {
    */
   const dialog = document.getElementById("help");
   dialog.close();
+});
+
+window.addEventListener("load", function() {
+  this.requestAnimationFrame(() => this.document.getElementById("loading").remove());
 });
