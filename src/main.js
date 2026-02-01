@@ -9,7 +9,6 @@ import { keymap } from "@codemirror/view";
 import { EditorState } from "@codemirror/state";
 import { expandAbbreviation, abbreviationTracker } from "@emmetio/codemirror6-plugin";
 
-const outputElement = document.querySelector('#output');
 const parser = new DOMParser();
 
 const htmlView = new EditorView({
@@ -55,7 +54,12 @@ const jsView = new EditorView({
 });
 
 function handleUpdateListener() {
-  const iframeDoc = outputElement.contentDocument || outputElement.contentWindow.content;
+  const outputElement = document.querySelector('#output');
+
+  const newOutputElement = outputElement.cloneNode();
+  outputElement.replaceWith(newOutputElement);
+
+  const iframeDoc = newOutputElement.contentDocument || newOutputElement.contentWindow.content;
 
   const styleElement = document.createElement('style');
   styleElement.innerHTML = cssView.state.doc.toString();
