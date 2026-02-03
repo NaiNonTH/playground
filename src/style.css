@@ -112,6 +112,7 @@ main :last-child {
 }
 .editor [role="tabpanel"] {
   flex: 1;
+  overflow: auto;
 }
 
 .cm-editor {
