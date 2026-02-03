@@ -74,6 +74,15 @@ main :last-child {
   margin: 1rem auto 0;
 }
 
+#resizer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -3px;
+  width: 6px;
+  cursor: col-resize;
+}
+
 .toolbar {
   display: flex;
 }
@@ -87,7 +96,7 @@ main :last-child {
 }
 
 .toolbar > div,
-.editor button {
+#editor button {
   box-shadow:
     inset 1px 1px 2px #fff9,
     inset -1px -1px 2px #0003;
@@ -95,22 +104,24 @@ main :last-child {
   background: linear-gradient(#fff, #f0f0f0);
 }
 
-.editor {
+#editor {
+  position: relative;
+  min-width: 300px;
   width: 640px;
   border-left: 1px solid lightgray;
 
   display: flex;
   flex-direction: column;
 }
-.editor button {
+#editor button {
   padding: 0.25rem;
   border: none;
   cursor: pointer;
 }
-.editor button:active {
+#editor button:active {
   filter: brightness(0.9);
 }
-.editor [role="tabpanel"] {
+#editor [role="tabpanel"] {
   flex: 1;
   overflow: auto;
 }

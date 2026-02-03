@@ -162,6 +162,36 @@ document.getElementById("close-help").addEventListener("click", function() {
   dialog.close();
 });
 
+const editor = document.getElementById("editor");
+const resizer = document.getElementById("resizer");
+
+let regX,
+    resizing = false,
+    editorWidth;
+
+resizer.addEventListener("mousedown", function(event) {
+  event.preventDefault();
+  
+  resizing = true;
+  regX = event.clientX;
+  editorWidth = editor.offsetWidth;
+  document.querySelector('#output').style.pointerEvents = "none";
+});
+
+window.addEventListener("mousemove", function(event) {
+  event.preventDefault();
+
+  if (!resizing)
+    return;
+
+  editor.style.width = editorWidth + (regX - event.clientX) + "px";
+});
+
+window.addEventListener("mouseup", function() {
+  resizing = false;
+  document.querySelector('#output').style.pointerEvents = null;
+});
+
 window.addEventListener("load", function() {
   this.requestAnimationFrame(() => this.document.getElementById("loading").remove());
 });
